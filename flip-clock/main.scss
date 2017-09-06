@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #f2f1ed;
+}
+@mixin box {
+  box-shadow: 0 3px 2px 1px rgba(0, 0, 0, 0.2),inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+$height:150px;
+@mixin font {
+  font-family: Times,Tahoma,Arial, sans-serif;
+  font-size: 8em;
+  font-weight: bold;
+  color: rgb(222,72,72)
+}
+
+section {
+  display: inline-block;
+}
+.hour,
+.minute,
+.second {
+  width: 200px;
+  height: 160px;
+  .wrap-fir,
+  .wrap-sec {
+    font: inherit;
+    display: inline-block;
+    position: relative;
+    width: 47%;
+    height: $height;
+    text-align: center;
+    vertical-align: middle;
+    line-height: $height;
+    border-radius: 20px;
+    @include font;
+    @include box;
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      height: 0;
+      border-bottom: 1px solid #ccc;
+      z-index: 2;
+    }
+    .front-top,
+    .front-bottom,
+    .back-top,
+    .back-bottom {
+      top: 0;
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      background-color: rgb(247,247,247);
+      border-radius: 20px;
+
+    }
+    .front-top,
+    .back-top {
+      clip-path:polygon(0 0,100% 0,100% 50%,0 50%);
+    }
+    .front-bottom,
+    .back-bottom {
+      clip-path:polygon(0 50%,100% 50%,100% 100%,0 100%);
+    }
+    .front-top,
+    .front-bottom {
+      z-index: 1;
+      transition: all 0.6s linear;
+    }
+
+    .front-bottom {
+      transform: rotateX(90deg)
+    }
+  }
+}
