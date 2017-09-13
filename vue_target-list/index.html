@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>任务列表</title>
+  <link rel="stylesheet" href="main.css">
+  <link href='http://cdn.webfont.youziku.com/webfonts/nomal/107956/46614/59b929dff629d815106db511.css' rel='stylesheet' type='text/css' />
+  <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+  <nav class="clearfix">
+    <div class="icon"><span class="iconfont">&#xe67d;</span>任务计划列表</div>
+    <ul class="interaction">
+      <li>
+        <span :class={active:createPlan} @click=toggleCreate>创建</span>
+        <span :class={active:searchPlan} @click=toggleSearch>查找</span>
+      </li>
+      <li :class="{active: present === 'all'}">
+        <a href="#all">所有任务</a>
+        <div>{{list.length}}</div>
+      </li>
+      <li :class="{active:present === 'unfinished'}">
+        <a href="#unfinished">未完成的任务</a>
+        <div>{{unfinished}}</div>
+      </li>
+      <li :class="{active:present === 'finished'}">
+        <a href="#finished">完成的任务</a>
+        <div>{{finished}}</div>
+      </li>
+      <li :class="{active:present === 'searched'}">
+        <a href="#searched">查找的任务</a>
+        <div>{{searched}}</div>
+      </li>
+    </ul>
+  </nav>
+
+
+  <div class="main">
+    <header class="page-top">
+      <h3 v-show="!list.length && !createPlan && !searchPlan">您现在还没有添加任何计划,点击「创建」按钮来建立属于自己的计划列表。</h3>
+      <h3 v-show="createPlan">按「回车」键即可添加计划</h3>
+      <h3 v-show="searchPlan ">请输入查找关键词</h3>
+      <h3 v-show="list.length && !createPlan && !searchPlan">tips:双击任务可以修改计划.</h3>
+      <h3 v-show="list.length && !createPlan && !searchPlan">tips:双击任务可以修改计划.查询字符可删除</h3>
+    </header>
+    <input v-focus="createPlan" v-show="createPlan" class="task-input" type="text" v-model="content" @keyup.enter="addTodo">
+    <input v-focus="searchPlan" v-show="searchPlan" type="text" v-model="searchContent" @keyup.enter="searchTodo">
+
+    <h2>任务列表：</h2>
+    <h2 :class="{active:present === 'searched'}">查询字符：{{searchContent}} <span @click="deleteSearch">×</span></h2>
+    <div class="tasks">
+      <ul class="todo-list">
+        <li class="todo" :class="{completed: item.isChecked,editing: item === editItem}" v-for="item in filteredList">
+          <div class="view">
+            <input class="toggle" type="checkbox" v-model="item.isChecked" />
+            <label @dblclick="editTodo(item)">{{ item.content }}</label>
+            <label @dblclick="editTodo(item)">{{ item.time }}</label>
+            <button class="destroy" @click="deleteTodo(item)"></button>
+          </div>
+          <input v-focus="item === editItem" class="edit" type="text" @blur="finishEdit(item)" @keyup.enter="finishEdit(item)" @keyup.esc="cancelEdit(item)" v-model="item.content">
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script src="./app.js"></script>
+</body>
+
+</html>
