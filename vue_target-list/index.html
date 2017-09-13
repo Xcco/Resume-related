@@ -42,8 +42,8 @@
       <h3 v-show="!list.length && !createPlan && !searchPlan">您现在还没有添加任何计划,点击「创建」按钮来建立属于自己的计划列表。</h3>
       <h3 v-show="createPlan">按「回车」键即可添加计划</h3>
       <h3 v-show="searchPlan ">请输入查找关键词</h3>
-      <h3 v-show="list.length && !createPlan && !searchPlan">tips:双击任务可以修改计划.</h3>
-      <h3 v-show="list.length && !createPlan && !searchPlan">tips:双击任务可以修改计划.查询字符可删除</h3>
+      <h3 v-show="list.length && !createPlan && !searchPlan && !searchContent">tips:双击任务可以修改计划.</h3>
+      <h3 v-show="list.length && !createPlan && !searchPlan && searchContent">tips:双击任务可以修改计划.查询字符可删除</h3>
     </header>
     <input v-focus="createPlan" v-show="createPlan" class="task-input" type="text" v-model="content" @keyup.enter="addTodo">
     <input v-focus="searchPlan" v-show="searchPlan" type="text" v-model="searchContent" @keyup.enter="searchTodo">
