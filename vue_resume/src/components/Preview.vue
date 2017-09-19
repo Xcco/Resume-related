@@ -1,6 +1,6 @@
 <template>
 <div id="preview">
-  <header>
+  <header class="header">
     <div class="left">
     </div>
     <div class="name">
@@ -101,7 +101,7 @@
     box-sizing: border-box;
     overflow: auto;
     color: #4c3a30;
-    header {
+    .header {
         margin-top: 45px;
         display: flex;
         height: 120px;
@@ -138,6 +138,42 @@
                 align-items: center;
                 padding: 10px 10px 10px 5px;
                 color: #fff;
+            }
+        }
+    }
+    section {
+        margin-left: 40px;
+        margin-top: 50px;
+        h2 {
+            display: inline-block;
+            font-weight: bold;
+            border-bottom: 4px solid var(--main-color);
+        }
+        li {
+            display: flex;
+            margin-left: 20px;
+            margin-bottom: 8px;
+            span {
+                width: 90px;
+            }
+            h3 {
+                margin-top: 0;
+                font-weight: bold;
+            }
+        }
+        &.person {
+            min-height: 250px;
+            width: 242px;
+            p {
+                width: 100%;
+                margin-left: 20px;
+            }
+        }
+        &:last-of-type {
+            vertical-align: bottom;
+            p {
+                margin-top: 3px;
+                margin-left: 10px;
             }
         }
     }
