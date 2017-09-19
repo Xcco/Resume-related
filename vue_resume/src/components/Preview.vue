@@ -101,48 +101,48 @@
     box-sizing: border-box;
     overflow: auto;
     color: #4c3a30;
-
-}
-header {
-    margin-top: 45px;
-    display: flex;
-    height: 120px;
-    .left {
-        width: 30px;
-        background-color: var(--main-color);
-    }
-    .line {
-        width: 30px;
-        border-left: 4px solid var(--main-color);
-    }
-    .name {
-        flex-grow: 1;
-        h1 {
-            color: var(--main-color);
-            font-size: 52px;
-            margin: 5px 10px 10px;
-        }
-        p {
-            margin: 5px 10px;
-            color: #aaa;
-            font-size: 16px;
-        }
-    }
-    .right {
-        width: 300px;
-        background-color: var(--main-color);
-        height: 100%;
+    header {
+        margin-top: 45px;
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        div {
+        height: 120px;
+        .left {
+            width: 30px;
+            background-color: var(--main-color);
+        }
+        .line {
+            width: 30px;
+            border-left: 4px solid var(--main-color);
+        }
+        .name {
+            flex-grow: 1;
+            h1 {
+                color: var(--main-color);
+                font-size: 52px;
+                margin: 5px 10px 10px;
+            }
+            p {
+                margin: 5px 10px;
+                color: #aaa;
+                font-size: 16px;
+            }
+        }
+        .right {
+            width: 300px;
+            background-color: var(--main-color);
+            height: 100%;
             display: flex;
-            align-items: center;
-            padding: 10px 10px 10px 5px;
-            color: #fff;
+            flex-direction: column;
+            align-items: flex-start;
+            div {
+                display: flex;
+                align-items: center;
+                padding: 10px 10px 10px 5px;
+                color: #fff;
+            }
         }
     }
 }
+
 .main-left {
     width: 464px;
     border-right: 4px solid var(--main-color);
