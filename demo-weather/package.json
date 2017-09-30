@@ -1,0 +1,21 @@
+{
+  "name": "weather-counsel",
+  "version": "1.0.3",
+  "description": "weather forecast in terminal",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "weather":"./index.js"
+  },
+  "keywords": [
+    "weather",
+    "forecast"
+  ],
+  "author": "cc <cco.oul@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios":"^0.15.3"
+  }
+}
